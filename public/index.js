@@ -1,18 +1,19 @@
 var db = firebase.firestore();
-var count = db.collection('vote').doc('count');
+var vote = db.collection('vote');
 
 document.getElementById("btn_miho").onclick = function() {
-  count.update({ miho:firebase.firestore.FieldValue.increment(1) });
-  //投票数を取得して表示する
-  //document.getElementById("miho_count").textContent = getVoteCount();
+  var docId = "JW2NR3zFjHuUsnCwxe5z";
+  vote.doc(docId).update({ vote_count:firebase.firestore.FieldValue.increment(1) });
+  document.getElementById("miho_count").textContent = getVoteCount(docId);
 };
 
 document.getElementById("btn_eriko").onclick = function() {
-  count.update({ eriko:firebase.firestore.FieldValue.increment(1) })
-  //投票数を取得して表示する
-  //document.getElementById("eriko_count").textContent = getVoteCount();
+  var docId = "L1kXmXECCJ0QgyHL52vX";
+  vote.doc(docId).update({ vote_count:firebase.firestore.FieldValue.increment(1) })
+  document.getElementById("eriko_count").textContent = getVoteCount(docId);
 };
 
-function getVoteCount(doc){
-  //投票数を取得する
+function getVoteCount(docId){
+  var count;
+  return count;
 }
